@@ -39,13 +39,12 @@ const SignUp = ({ setToggle }) => {
       setMessage({ type: 'error', content: error.message });
     } else {
       if (createdUser) {
-        await updateUserName(createdUser, name);
-        setNewUser(createdUser);
-      } else {
         setMessage({
           type: 'note',
           content: 'Check your email for the confirmation link.'
         });
+        await updateUserName(createdUser, name);
+        setNewUser(createdUser);
       }
     }
     setLoading(false);
