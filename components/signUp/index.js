@@ -7,22 +7,23 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react';
 import Button from 'components/ui/Button';
 import Input from 'components/ui/Input';
 import { updateUserName } from 'utils/supabase-client';
+import { AiFillLock } from 'react-icons/ai';
 
-const SignUp = () => {
+const SignUp = ({ setToggle }) => {
   const supabaseClient = useSupabaseClient();
-  const [newUser, setNewUser] = useState<User | null>(null);
+  const [newUser, setNewUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState<{ type?: string; content?: string }>({
+  const [message, setMessage] = useState({
     type: '',
     content: ''
   });
   const router = useRouter();
   const user = useUser();
 
-  const handleSignup = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
 
     setLoading(true);
@@ -59,7 +60,9 @@ const SignUp = () => {
   return (
     <div className="flex justify-center height-screen-helper">
       <div className="flex flex-col justify-between max-w-lg p-3 m-auto w-80 ">
-        <div className="flex justify-center pb-12 ">
+        <div className="flex flex-col items-center justify-center pb-12 ">
+          <AiFillLock size={70} />
+          Admin / Sign Up
         </div>
         <form onSubmit={handleSignup} className="flex flex-col space-y-4">
           {message.content && (
@@ -101,11 +104,14 @@ const SignUp = () => {
           <span className="pt-1 text-center text-sm">
             <span className="text-zinc-200">Do you have an account?</span>
             {` `}
-            <Link href="/signin">
-              <a className="text-accent-9 font-bold hover:underline cursor-pointer">
-                Sign in.
-              </a>
-            </Link>
+            <p
+              onClick={() => {
+                setToggle('signin');
+              }}
+              className="text-accent-9 font-bold hover:underline cursor-pointer"
+            >
+              Sign in.
+            </p>
           </span>
         </form>
       </div>
