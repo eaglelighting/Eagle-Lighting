@@ -7,9 +7,9 @@ interface Props {
   products: Product[];
 }
 
-export default function PricingPage({ products }: Props) {
+export default function HomePage({ products }: Props) {
     return (
-      <div> hello </div>
+      <div className='min-h-screen'></div>
     );
 }
 
