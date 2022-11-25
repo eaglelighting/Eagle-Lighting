@@ -57,7 +57,7 @@ const SignUp = ({ setToggle }) => {
   // }, [newUser, user]);
 
   return (
-    <div className="flex justify-center height-screen-helper">
+    <div className="flex justify-center bg-black height-screen-helper">
       <div className="flex flex-col max-w-lg p-3 w-80 ">
         <div className="flex flex-col items-center justify-center pb-12 ">
           <AiFillLock size={70} />

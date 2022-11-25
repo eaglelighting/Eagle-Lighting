@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-
+import NavBar from '../components/navBar'
 import Navbar from 'components/ui/Navbar';
-import Footer from 'components/ui/Footer';
+import Footer from '../components/footer'
 import { ReactNode } from 'react';
 import { PageMeta } from '../types';
 
@@ -39,7 +39,8 @@ export default function Layout({ children, meta: pageMeta }: Props) {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavBar />
       <main id="skip">{children}</main>
       <Footer />
     </>
