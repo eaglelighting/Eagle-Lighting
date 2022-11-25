@@ -55,26 +55,26 @@ const SignIn = ({setToggle}) => {
     setLoading(false);
   };
 
-  const handleOAuthSignIn = async (provider) => {
-    setLoading(true);
-    const { error } = await supabaseClient.auth.signInWithOAuth({
-      provider,
-      options: { redirectTo: getURL() }
-    });
-    if (error) {
-      setMessage({ type: 'error', content: error.message });
-    }
-    setLoading(false);
-  };
+  // const handleOAuthSignIn = async (provider) => {
+  //   setLoading(true);
+  //   const { error } = await supabaseClient.auth.signInWithOAuth({
+  //     provider,
+  //     options: { redirectTo: getURL() }
+  //   });
+  //   if (error) {
+  //     setMessage({ type: 'error', content: error.message });
+  //   }
+  //   setLoading(false);
+  // };
 
-  useEffect(() => {
-    if (user) {
-      router.replace('/account');
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user) {
+  //     router.replace('/account');
+  //   }
+  // }, [user]);
     return (
         <div className="flex justify-center height-screen-helper">
-        <div className="flex flex-col justify-between max-w-lg p-3 m-auto w-80 ">
+        <div className="flex flex-col max-w-lg p-3 w-80 ">
           <div className="flex flex-col items-center justify-center pb-12 ">
             <AiFillLock size={70} />
             Admin / Sign In
